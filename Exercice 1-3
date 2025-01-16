@@ -1,0 +1,47 @@
+Commencer
+Mettre la variable "toujours un" à VRAI
+Mettre le score total à 0
+Mettre le score du premier lancer à 0
+Mettre le score du second lancer à 0
+Répéter 12 fois (pour chaque lancer) :
+    a. Demander au joueur combien de quilles sont tombées (entre 0 et 10)
+    b.  Si le nombre de quille est différent de 1 :
+            mettre la variable "toujours un" à FALSE.
+        Sinon si c'est le premier lancer : 
+            Ajouter le nombre de quille tombé au score du Premier Lancer
+        Sinon si c'est le second lancer : 
+            Ajouter le nombre de quille tombé au score du Second Lancer
+    c. Ajouter ce nombre au score total
+Si "toujours un" est égale à VRAI : // règle si tous les lancer font 1
+    Score total est égale à 20.
+Sinon si le score du premier lancer = 10 ET que le score du second lancer = 3 ET que le score total = 13: // règle strike + 3 + tous autres tire raté
+    Score total est égale à 16.
+Après les 12 lancers, afficher le score total
+Terminer
+
+---------------------------------------------------------------
+
+alwaysOne = true;
+scorePremierLancer = 0;
+scoreSecondLancer = 0;
+scoreTotal = 0;
+
+for (int i = 0; i < 12; i++) {
+    scoreTotal += nombreQuilleTombé();
+
+    if (quilleTombé != 1) {
+        alwaysOne = false;
+    } else if (i == 0) { // si c'est le premier lancer
+        scorePremierLancer = nombreQuilleTombé();
+    } else if (i == 1) { // si c'est le second lancer
+        scoreSecondLancer = nombreQuilleTombé();
+    } 
+}
+
+if (alwaysOne == true) { // règle si tous les lancer font 1
+    scoreTotal = 20;
+} else if (scorePremierLancer == 10 && scoreSecondLancer == 3 && scoreTotal == 13) { // règle strike + 3 + tous autres tire raté
+    scoreTotal = 16;
+}
+
+print(scoreTotal);

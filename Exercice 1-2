@@ -1,0 +1,30 @@
+Commencer
+Mettre la variable "toujours un" à VRAI
+Mettre le score total à 0
+Répéter 12 fois (pour chaque lancer) :
+    a. Demander au joueur combien de quilles sont tombées (entre 0 et 10)
+    b. Si le nombre de quille est différent de 1 alors mettre la variable "toujours un" à FALSE.
+    c. Ajouter ce nombre au score total
+Si "toujours un" est égale à VRAI :
+    Score total est égale à 20.
+Après les 12 lancers, afficher le score total
+Terminer
+
+---------------------------------------------------------------
+
+alwaysOne = true;
+scoreTotal = 0;
+
+for (int i = 0; i < 12; i++) {
+    scoreTotal += nombreQuilleTombé();
+
+    if (quilleTombé != 1) {
+        alwaysOne = false;
+    }
+}
+
+if (alwaysOne == true) {
+    scoreTotal = 20;
+}
+
+print(scoreTotal);
